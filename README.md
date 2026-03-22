@@ -108,4 +108,120 @@ OPENAI_API_KEY=your_openai_key   # optional
 
 ### 5️⃣ Add Documents
 
-Place your fil
+Place your files inside:
+
+```
+data/documents/
+```
+
+Supported formats:
+
+* `.txt`
+* `.pdf`
+
+---
+
+### 6️⃣ Run Ingestion
+
+```
+python -m app.ingestion.ingest
+```
+
+This will:
+
+* Load documents
+* Split into chunks
+* Generate embeddings
+* Store in Pinecone
+
+---
+
+### 7️⃣ Run Backend Server
+
+```
+uvicorn app.main:app --reload
+```
+
+Open:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### 8️⃣ Run Frontend
+
+Open:
+
+```
+frontend/index.html
+```
+
+---
+
+## 💬 API Usage
+
+### POST `/chat`
+
+Request:
+
+```
+{
+  "question": "What is RAG?"
+}
+```
+
+Response:
+
+```
+{
+  "answer": "RAG stands for Retrieval-Augmented Generation..."
+}
+```
+
+---
+
+## 🧠 Technologies Used
+
+* **Python 3.11**
+* **FastAPI**
+* **LangChain**
+* **Pinecone**
+* **Sentence Transformers**
+* **Uvicorn**
+* **HTML + JavaScript**
+
+---
+
+## 🔥 Future Improvements
+
+* 📌 Source citations (PDF page numbers)
+* 💬 Conversation memory
+* ⚡ Streaming responses
+* 📤 File upload UI
+* 🔍 Hybrid search (BM25 + vector)
+* 🐳 Docker deployment
+* ☁️ AWS deployment
+
+---
+
+## 📌 Key Learnings
+
+* RAG pipeline design
+* Vector similarity search
+* Embedding generation
+* FastAPI backend development
+* Handling real-world data ingestion
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and improve the system.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
